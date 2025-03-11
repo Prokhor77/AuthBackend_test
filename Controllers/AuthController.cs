@@ -25,7 +25,7 @@ namespace AuthBackend.Controllers
         {
             var code = new Random().Next(1000, 9999).ToString();
             _emailCodes[request.Email] = code;
-            _producer.SendEmail(request.Email, code);
+            _producer.SendEmail(request.Email, code); // Отправляем сообщение в очередь
             _logger.LogInformation($"[{DateTime.Now}] Код {code} сгенерирован для {request.Email}");
             return Ok(new { message = "Код отправлен на вашу почту." });
         }
