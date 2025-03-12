@@ -38,7 +38,6 @@ namespace AuthBackend.Services
 
                 _logger.LogInformation($"[{DateTime.Now}] Получено сообщение для {emailMessage.Email} с кодом {emailMessage.Code}");
 
-                // Отправка email
                 _emailSender.SendEmail(emailMessage.Email, emailMessage.Code);
             };
 

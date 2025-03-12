@@ -9,7 +9,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.WebHost.UseUrls("http://0.0.0.0:5121");
 
-// Разрешаем CORS
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", policy =>
@@ -24,7 +23,7 @@ builder.Services.AddControllers();
 builder.Services.AddSingleton<RabbitMQProducer>();
 builder.Services.AddSingleton<EmailSender>();
 builder.Services.AddHostedService<RabbitMQBackgroundService>();
-builder.Services.AddLogging(); // Добавляем логирование
+builder.Services.AddLogging(); 
 
 var app = builder.Build();
 
